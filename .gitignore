@@ -1,2 +1,11 @@
+# # ignorar el archivo de variables de entorno que contiene 
+# secretos y configuraciones sensibles
 .env
+# ignorar archivos compilados de python
 __pycache__/
+*.pyc
+#entorno virtul de python
+.venv/
+venv/
+#ignorar los archivos compilados de python
+

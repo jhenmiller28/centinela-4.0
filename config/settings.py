@@ -19,7 +19,7 @@ class Config:
     LOG_PATH = os.getenv("LOG_PATH", "/var/log/auth.log")
 
     # 2 seguridad
-    MI_IP_SEGURA = os.getenv("MI_IP_SEGURA")
+    MI_IP_SEGURA = os.getenv("MI_IP_SEGURA")  ## aun esta por definir
 
     # BASE DE DATOS(EN POSTGRESQL)
     # DB = DATEBASE. LEEMOS LAS CREDENCIALES PARA CONECTAR EL CONTENEDOR DE PYTHON CO EL DE POSTGERSQL
@@ -28,12 +28,13 @@ class Config:
     DB_USER = os.getenv("POSTGRES_USER")
     DB_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 
-    # alertas (telegran)
+    # alertas (telegran) POR DEFINIR
+    # esto se define en el archivo .ENV y se lee con os.getenv, si no se encuentra, se deja vacio por seguridad
     # TOKEN ES LA LLAVE EDL BOT , CHAT ID ES ELNUMERO DEL CHAT DE TELEGRAM
     TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
     TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 
-    @classmethod
+    @classmethod  # decorador que indica que el siguiente metodo es un metodo de clase, no necesita una instancia de la clase para ser llamado
     def validar_configuracion(cls):
         """cls es la abreviatura de class. representa a la clase config asi misma
         principio de fail fast(falla rapida ):si llega a faltar algo critico, el sistema no arranca
